@@ -1,9 +1,9 @@
 <?php
     session_start();
 
-    $numRecensioni = $_SESSION['numRecensioni'] ?? 0;
-    $lastDate = $_SESSION['lastDate'] ?? 'Nessuna recensione';
-    $votes = $_SESSION['votes'] ?? [];
+    $numRecensioni = $_SESSION['numRecensioni'];
+    $lastDate = $_SESSION['lastDate'];
+    $votes = $_SESSION['votes'];
 
     $media = 0;
     if ($numRecensioni > 0) {
@@ -33,9 +33,11 @@
     </table>
     <h2>Voti : </h2>
     <ul>
-        <?php foreach ($votes as $voto): ?>
-            <li><?php echo $voto; ?></li>
-        <?php endforeach; ?>
+        <?php
+            foreach($votes as $voto) {
+                echo "<li>$voto</li>";
+            }
+        ?>
     </ul>
     <h3>Media : <?php echo number_format($media, 2); ?></h3>
     <p><a href="presentazione.html">Pagina Iniziale</a></p>
