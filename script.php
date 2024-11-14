@@ -13,11 +13,8 @@
         if (!isset($_SESSION['numRecensioni'])) {
             $_SESSION['numRecensioni'] = 1;
             $_SESSION['votes'] = [];
-            $_SESSION['lastDate'] = '';
-        } else if(empty($_SESSION)){
-            $_SESSION['numRecensioni'] = 1;
-            $_SESSION['votes'] = [];
-            $_SESSION['lastDate'] = '';
+            $_SESSION['votes'][] = $_POST['recensione'];
+            $_SESSION['lastDate'] = $_POST['data'];
         } else {
             $_SESSION['numRecensioni']++;
             $_SESSION['votes'][] = $_POST['recensione'];
